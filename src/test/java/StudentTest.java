@@ -1,5 +1,4 @@
 import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,6 +9,9 @@ public class StudentTest {
     @Before
     public void setUp(){
         this.student = new Student("Jay", 1234567);
+        student.addGrade(100);
+        student.addGrade(75);
+        student.addGrade(50);
     }
 
     @Test
@@ -30,9 +32,6 @@ public class StudentTest {
 
     @Test
     public void testGetGradeAverage(){
-        student.addGrade(100);
-        student.addGrade(75);
-        student.addGrade(50);
         double average = student.getGradeAverage();
 
         // test if grades are there and if they match the index.
@@ -44,5 +43,14 @@ public class StudentTest {
         // test output
         assertEquals(75, average, 0);
 
+    }
+
+    @Test
+    public void testUpdateGrade(){
+        assertSame(75, student.getGrades().get(1));
+
+        student.updateGrades(student.getGrades(),75, 100);
+
+        assertSame(100, student.getGrades().get(1));
     }
 }

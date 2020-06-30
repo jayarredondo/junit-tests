@@ -50,4 +50,12 @@ public class Student {
             averageGrade += grade;
         }return averageGrade/grades.size();
     }
+
+    public void updateGrades(ArrayList<Integer> grades, int oldGrade, int newGrade){
+        for (Integer grade : grades){
+            if(grade == oldGrade){
+                grades.set(grades.indexOf(grade), newGrade);
+            }
+        }
+    }
 }
