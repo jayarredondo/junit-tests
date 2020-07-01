@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Student {
@@ -51,11 +52,22 @@ public class Student {
         }return averageGrade/grades.size();
     }
 
-    public void updateGrades(ArrayList<Integer> grades, int oldGrade, int newGrade){
+    public void updateGrade(ArrayList<Integer> grades, int oldGrade, int newGrade){
         for (Integer grade : grades){
             if(grade == oldGrade){
                 grades.set(grades.indexOf(grade), newGrade);
             }
         }
     }
-}
+
+    public void deleteGrade(ArrayList<Integer> grades, int gradeToDelete){
+        ArrayList<Integer> newGrades = new ArrayList<>();
+        for(Integer grade: grades){
+            newGrades.add(grade);
+            }
+        if(newGrades.contains(gradeToDelete)) {
+            newGrades.remove(newGrades.indexOf(gradeToDelete));
+        }
+        setGrades(newGrades);
+        }
+    }
