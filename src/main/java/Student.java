@@ -32,7 +32,7 @@ public class Student {
 
     // Constructor
 
-    public Student(String name, long id){
+    public Student(String name, long id) {
         this.name = name;
         this.id = id;
         this.grades = new ArrayList<>();
@@ -41,33 +41,23 @@ public class Student {
 
     // Methods
 
-    public void addGrade(int grade){
+    public void addGrade(int grade) {
         this.grades.add(grade);
     }
 
-    public double getGradeAverage(){
+    public double getGradeAverage() {
         double averageGrade = 0;
         for (Integer grade : grades) {
             averageGrade += grade;
-        }return averageGrade/grades.size();
+        }
+        return averageGrade / grades.size();
     }
 
-    public void updateGrade(ArrayList<Integer> grades, int oldGrade, int newGrade){
-        for (Integer grade : grades){
-            if(grade == oldGrade){
-                grades.set(grades.indexOf(grade), newGrade);
-            }
-        }
+    public void updateGrade(int index, int newGrade) {
+        grades.set(index, newGrade);
     }
 
-    public void deleteGrade(ArrayList<Integer> grades, int gradeToDelete){
-        ArrayList<Integer> newGrades = new ArrayList<>();
-        for(Integer grade: grades){
-            newGrades.add(grade);
-            }
-        if(newGrades.contains(gradeToDelete)) {
-            newGrades.remove(newGrades.indexOf(gradeToDelete));
-        }
-        setGrades(newGrades);
-        }
+    public void deleteGrade(int gradeToDelete) {
+        grades.remove(grades.indexOf(gradeToDelete));
     }
+}

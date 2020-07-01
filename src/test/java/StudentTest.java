@@ -52,7 +52,7 @@ public class StudentTest {
         assertSame(75, student.getGrades().get(1));
         assertEquals(3, student.getGrades().size());
 
-        student.updateGrade(student.getGrades(),75, 100);
+        student.updateGrade(1, 100);
 
         assertEquals(3, student.getGrades().size());
         assertSame(100, student.getGrades().get(1));
@@ -63,7 +63,7 @@ public class StudentTest {
         assertSame(50, student.getGrades().get(2));
         assertEquals(3, student.getGrades().size());
 
-        student.deleteGrade(student.getGrades(), 50);
+        student.deleteGrade(50);
 
         assertFalse(student.getGrades().contains(50));
         assertEquals(2, student.getGrades().size());
